@@ -11,7 +11,6 @@ const AGENT_PREAMBLE: &str = "你是一个文件操作助手。你可以创建�
                                优先使用专用的文件操作工具（create_file, delete_file, read_file），\
                                只有在这些工具无法完成任务时，才使用通用的run_command工具。\
                                每次执行操作前，系统都会向用户请求确认。\
-                               对于删除操作和危险命令，需要用户二次确认。\
                                请严格按照JSON格式返回结果，不要包含额外的文本或格式。\
                                如果用户有代码需求，默认使用英文代码中文注释。\
                                对于文件操作，请优先使用专门的工具而不是运行shell命令。";
@@ -42,7 +41,7 @@ impl FileAgent {
     pub async fn process_query(&self, query: &str) -> Result<String> {
         println!("\n{} : {}", "agent >".green(), query);
 
-        match self.file_agent.prompt(query).await {
+        match self.file_agent.prompt(query).multi_turn(20).await {
             Ok(response) => {
                 let result = response.to_string();
                 println!("{} {}", "agent >".green(), result);

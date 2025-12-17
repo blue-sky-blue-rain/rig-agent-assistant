@@ -28,6 +28,9 @@ async fn main() -> Result<()> {
                 println!("再见!");
                 break;
             }
+            "" => {
+                continue;
+            }
             _ => {
                 if let Err(e) = file_agent.process_query(input).await {
                     println!("{} 错误: {}", "agent >".red(), e);

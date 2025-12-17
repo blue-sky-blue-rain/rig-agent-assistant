@@ -1,9 +1,10 @@
-# Rust编译输出
-/target
+# 编译输出
+/target/
 **/*.rs.bk
-Cargo.lock
+*.swp
+*.swo
 
-# 环境变量和配置文件
+# 环境变量文件
 .env
 .env.local
 .env.*.local
@@ -12,16 +13,59 @@ Cargo.lock
 *.log
 logs/
 
-# 操作系统文件
-.DS_Store
-Thumbs.db
+# 运行时数据
+tmp/
+temp/
+*.tmp
+*.temp
 
-# 编辑器文件
+# IDE和编辑器文件
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
+.DS_Store
+Thumbs.db
+
+# 项目特定文件
+# 由程序创建的文件（可选择性忽略，根据需要调整）
+*.txt
+*.py
+*.rs
+*.json
+*.toml
 
 # 构建产物
-release/
-debug/
+/build/
+/dist/
+
+# 依赖锁定文件
+Cargo.lock
+
+# 可执行文件
+ai_file_assistant
+*.exe
+
+# 配置文件（除了必要的）
+config.local.toml
+
+# 测试数据
+test_output/
+test_files/
+
+# 备份文件
+*.bak
+*.backup
+
+# 覆盖报告（如果使用覆盖率工具）
+coverage/
+*.profraw
+
+# 平台特定文件
+[Ll]ibrary/
+[Pp]references/
+[Rr]eces/
+[Tt]rash/
+*.dmg
+*.app
