@@ -23,5 +23,3 @@
 2. 复制`.env.example`为`.env`，并填入你的DeepSeek API密钥
 3. 运行`cargo run`
 4. 根据提示输入命令
-
-## 示例

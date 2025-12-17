@@ -10,8 +10,7 @@ pub struct Config {
 impl Config {
     pub fn new() -> Result<Self> {
         dotenv().ok();
-        let deepseek_api_key =
-            env::var("DEEPSEEK_API_KEY").context("DEEPSEEK_API_KEY not found")?;
+        let deepseek_api_key = env::var("DEEPSEEK_API_KEY").context("DEEPSEEK_API_KEY未找到")?;
         Ok(Self { deepseek_api_key })
     }
 
